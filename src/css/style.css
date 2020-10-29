@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #1d212b;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #252B37;
+  margin-top: 0;
+}
+input {
+  width: 100%;
+  font-size: 1em;
+  padding: 1em;
+  margin-bottom: 2em;
+  color: #ccc;
+  border: solid 1px #585858;
+  background: #191919;
+  outline: none;
+}
+button {
+  float: right;
+  display: none;
+  cursor: pointer;
+  color: tomato;
+  background: white;
+  border: 0;
+  border-radius: .3em;
+  padding: .35em .5em;
+  outline: none;
+}
+.container{
+  width: 90%;
+  margin: 2em auto 0;
+  padding: 1.5em;
+  background: #fff;
+  border-radius: .5em;
+  color: #252B37;
+  background-color: #151823;
+  animation: textColor 10s ease infinite;
+}
+
+h1{
+  animation: textColor 10s ease infinite;
+}
+
+.guest-list {
+  overflow: hidden;  
+}
+li {
+  font-size: 1.1em;
+  padding: 1em .85em;
+  color: #9a9a9a;
+  border: dotted 1px #585858;
+  background: #191919;
+ 
+}
+
+li:hover button {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 50%;
+  }  
+}
+
+/* ================================= 
+    ReactCSSTransitionGroup Classes
+==================================== */
+
+/* start enter state */
+.slide-enter {
+  transform: translateX(-100%);
+}
+
+/* end enter state */
+.slide-enter.slide-enter-active {
+  transform: translateX(0);
+  transition: transform 0.5s ease-out;
+}
+
+/* start leave state */
+.slide-leave {
+ transform: translateX(0);
+}
+
+/* end leave state */
+.slide-leave.slide-leave-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 0.5s ease-in;
+}
+
+/* initial mounting */
+.slide-appear{
+  opacity: 0;
+}
+
+.slide-appear.slide-appear-active{
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+
+.container:after {
+  position: absolute;
+  content: "";
+  top: 5vw;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 70%;
+  width: 70%;
+  margin: 0 auto;
+  transform: scale(0.75);
+  -webkit-filter: blur(5vw);
+  -moz-filter: blur(5vw);
+  -ms-filter: blur(5vw);
+  filter: blur(5vw);
+  background: linear-gradient(270deg, #0fffc1, #7e0fff, #FF02FF);
+  background-size: 200% 200%;
+  animation: animateGlow 10s ease infinite;
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  30% {
+    background-position: 100% 50%;
+  }
+  70% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+
+  }
+}
+@keyframes textColor {
+  0% {
+    color: #FF02FF;
+  }
+  30% {
+    color: #0fffc1;
+  }
+  70% {
+    color: #7e0fff;
+  }
+
+  100% {
+    color : #FF02FF;
+  }
+}
